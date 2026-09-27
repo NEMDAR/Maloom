@@ -1,0 +1,12 @@
+name: Build
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Maloom image
+        run: docker build -t maloom:ci .
